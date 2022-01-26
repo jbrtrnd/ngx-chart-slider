@@ -1,5 +1,5 @@
 {
-    "name": "ngx-chart-slider",
+    "name": "@jbrtrnd/ngx-chart-slider",
     "version": "0.0.4",
     "peerDependencies": {
         "@angular/common": "^12.2.0",
