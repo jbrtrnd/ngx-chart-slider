@@ -1,0 +1,142 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-chart-slider": {
+      "projectType": "library",
+      "root": "projects/ngx-chart-slider",
+      "sourceRoot": "projects/ngx-chart-slider/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-chart-slider/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-chart-slider/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-chart-slider/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-chart-slider/src/test.ts",
+            "tsConfig": "projects/ngx-chart-slider/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-chart-slider/karma.conf.js"
+          }
+        }
+      }
+    },
+    "ngx-chart-slider-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/ngx-chart-slider-demo",
+      "sourceRoot": "projects/ngx-chart-slider-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-chart-slider-demo",
+            "index": "projects/ngx-chart-slider-demo/src/index.html",
+            "main": "projects/ngx-chart-slider-demo/src/main.ts",
+            "polyfills": "projects/ngx-chart-slider-demo/src/polyfills.ts",
+            "tsConfig": "projects/ngx-chart-slider-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ngx-chart-slider-demo/src/favicon.ico",
+              "projects/ngx-chart-slider-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-chart-slider-demo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-chart-slider-demo/src/environments/environment.ts",
+                  "with": "projects/ngx-chart-slider-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-chart-slider-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "ngx-chart-slider-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-chart-slider-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-chart-slider-demo/src/test.ts",
+            "polyfills": "projects/ngx-chart-slider-demo/src/polyfills.ts",
+            "tsConfig": "projects/ngx-chart-slider-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-chart-slider-demo/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ngx-chart-slider-demo/src/favicon.ico",
+              "projects/ngx-chart-slider-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-chart-slider-demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-chart-slider"
+}

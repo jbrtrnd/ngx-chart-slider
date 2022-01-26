@@ -1,0 +1,12 @@
+{
+    "name": "ngx-chart-slider",
+    "version": "0.0.4",
+    "peerDependencies": {
+        "@angular/common": "^12.2.0",
+        "@angular/core": "^12.2.0"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "author": "Jules BERTRAND <contact@julesbertrand.dev> (https://github.com/jbrtrnd)"
+}

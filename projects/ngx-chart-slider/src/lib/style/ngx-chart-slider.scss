@@ -1,0 +1,175 @@
+// Container
+
+.ngx-cs-container {
+    display: flex;
+    height: 100%;
+    position: relative;
+    user-select: none;
+}
+
+// Picker
+
+.ngx-cs-picker {
+    position: absolute;
+    bottom: 1.25rem;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transform: translateX(-50%);
+    transition: left 350ms, box-shadow 200ms;
+    background: #ffffff;
+    box-shadow: 2px 2px 4px #cbd5ed, -2px -2px 4px #dde1eb;
+
+    &:hover {
+        box-shadow: 2px 2px 4px #7187b8, -2px -2px 4px #afbbda
+    }
+
+    &.ngx-cs-dragging {
+        transition: left 0ms;
+    }
+}
+
+.ngx-cs-picker-tooltip {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    background: #444;
+    color: #FEFEFE;
+    font-size: 0.75rem;
+    padding: 0.25rem;
+    border-radius: 0.15rem;
+    line-height: 0.5rem;
+}
+
+// Step
+
+.ngx-cs-step {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+
+    // Hover step
+
+    &.ngx-cs-hover {
+        .ngx-cs-bar-data, .ngx-cs-line {
+            background: #fffdc7;
+        }
+    }
+
+    // In range step
+
+    &.ngx-cs-in-range {
+        .ngx-cs-bar-data {
+            background: #93ace3;
+        }
+
+        &:nth-child(even) {
+            .ngx-cs-bar-data {
+                background: #99b4ef;
+            }
+        }
+
+        .ngx-cs-line {
+            background: #d0defd;
+        }
+    }
+}
+
+// Bar
+
+.ngx-cs-bar {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column-reverse;
+
+    .ngx-cs-bar-data {
+        height: 0;
+        background: #DEDEDE;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        will-change: height, background;
+
+        transition: height 500ms, background 200ms;
+    }
+}
+
+.ngx-cs-step:nth-child(even) {
+    .ngx-cs-bar-data {
+        background: #ebebeb;
+    }
+}
+
+// Line
+
+.ngx-cs-line {
+    display: block;
+    height: 1rem;
+    background: #fafafa;
+    transition: background 200ms;
+}
+
+.ngx-cs-step:first-of-type {
+    .ngx-cs-line {
+        border-bottom-left-radius: 0.25rem;
+    }
+}
+
+.ngx-cs-step:last-of-type {
+    .ngx-cs-line {
+        border-bottom-right-radius: 0.25rem;
+    }
+}
+
+// Label
+
+.ngx-cs-label {
+    display: flex;
+    height: 1.25rem;
+    justify-content: center;
+    align-items: center;
+
+    .ngx-cs-label-content {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.875rem;
+    }
+}
+
+.ngx-cs-disabled {
+    * { cursor: not-allowed; }
+}
+
+.ngx-cs-no-labels {
+    .ngx-cs-label {
+        display: none;
+    }
+
+    .ngx-cs-picker {
+        bottom: 0;
+    }
+}
+
+.ngx-cs-bounds-labels {
+    .ngx-cs-step:not(:first-of-type):not(:last-of-type) .ngx-cs-label .ngx-cs-label-content {
+        display: none;
+    }
+
+    .ngx-cs-step:first-of-type, .ngx-cs-step:last-of-type {
+        .ngx-cs-label .ngx-cs-label-content {
+            position: absolute;
+        }
+    }
+
+    .ngx-cs-step:first-of-type .ngx-cs-label .ngx-cs-label-content {
+        left: 0.25rem;
+    }
+
+    .ngx-cs-step:last-of-type .ngx-cs-label .ngx-cs-label-content {
+        right: 0.25rem;
+    }
+}

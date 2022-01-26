@@ -1,0 +1,70 @@
+<h1>ngx-chart-slider</h1>
+
+<h2>Simple</h2>
+Value : {{ demo1.value }} <button (click)="changeSteps()">Change steps</button>
+<div style="height: 150px">
+    <ngx-chart-slider
+        [(ngModel)]="demo1.value" (ngModelChange)="debug($event)"
+        [steps]="demo1.steps">
+    </ngx-chart-slider>
+</div>
+
+<!--<h2>Long labels</h2>-->
+<!--{{ demo2.value }}-->
+<!--<div style="height: 150px">-->
+<!--    <ngx-chart-slider-->
+<!--        [(ngModel)]="demo2.value" (ngModelChange)="debug($event)"-->
+<!--        [steps]="demo2.steps">-->
+<!--    </ngx-chart-slider>-->
+<!--</div>-->
+
+<!--<h2>No labels</h2>-->
+<!--{{ demo3.value }}-->
+<!--<div style="height: 150px">-->
+<!--    <ngx-chart-slider-->
+<!--        [(ngModel)]="demo3.value" (ngModelChange)="debug($event)"-->
+<!--        [steps]="demo3.steps"-->
+<!--        [displayLabels]="'none'">-->
+<!--    </ngx-chart-slider>-->
+<!--</div>-->
+
+<!--<h2>Only bounds labels</h2>-->
+<!--{{ demo4.value }}-->
+<!--<div style="height: 150px">-->
+<!--    <ngx-chart-slider-->
+<!--        [(ngModel)]="demo4.value" (ngModelChange)="debug($event)"-->
+<!--        [steps]="demo4.steps"-->
+<!--        [displayLabels]="'bounds'">-->
+<!--    </ngx-chart-slider>-->
+<!--</div>-->
+
+<!--<h2>1000 steps</h2>-->
+<!--{{ demo5.value }}-->
+<!--<div style="height: 150px">-->
+<!--    <ngx-chart-slider-->
+<!--        [(ngModel)]="demo5.value" (ngModelChange)="debug($event)"-->
+<!--        [steps]="demo5.steps"-->
+<!--        [displayLabels]="'bounds'">-->
+<!--    </ngx-chart-slider>-->
+<!--</div>-->
+
+<h2>Range</h2>
+Value : [{{ demo6.value }}] <button (click)="changeRangeSteps()">Change steps</button>
+<div style="height: 150px">
+    <ngx-chart-slider
+        [(ngModel)]="demo6.value" (ngModelChange)="debug($event)"
+        [range]="true"
+        [steps]="demo6.steps">
+    </ngx-chart-slider>
+</div>
+
+<h2>Range 1000 steps</h2>
+Value : [{{ demo7.value }}]
+<div style="height: 150px">
+    <ngx-chart-slider
+        [(ngModel)]="demo7.value" (ngModelChange)="debug($event)"
+        [range]="true"
+        [steps]="demo7.steps"
+        [displayLabels]="'bounds'">
+    </ngx-chart-slider>
+</div>

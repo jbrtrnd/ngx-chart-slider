@@ -1,0 +1,18 @@
+<div #container class="ngx-cs-container"
+     [ngClass]="{
+         'ngx-cs-no-labels': displayLabels === 'none',
+         'ngx-cs-bounds-labels': displayLabels === 'bounds',
+         'ngx-cs-disabled': isDisabled
+     }">
+    <ngx-chart-slider-step class="ngx-cs-step"
+                           *ngFor="let step of slider.steps"
+                           (click)="onStepClick(step)"
+                           [step]="step">
+    </ngx-chart-slider-step>
+    <ngx-chart-slider-picker class="ngx-cs-picker"
+                             *ngFor="let picker of slider.pickers"
+                             (mousedown)="onPickerMouseDown(picker)"
+                             [picker]="picker">
+    </ngx-chart-slider-picker>
+</div>
+
