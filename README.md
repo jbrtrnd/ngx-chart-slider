@@ -1,18 +1,16 @@
 # NgxChartSlider
 
 An Angular slider component with bar chart.
-<br />
-Demo here : [https://jbrtrnd.github.io/ngx-chart-slider](https://jbrtrnd.github.io/ngx-chart-slider/) 
 
 
 ## Installation
 
-`npm install --save ngx-chart-slider`
+`npm install --save @jbrtrnd/ngx-chart-slider`
 
 Import `NgxChartSlideModule` in your root Angular module :
 
 ```
-import { NgxChartSliderModule } from 'ngx-chart-slider';
+import { NgxChartSliderModule } from '@jbrtrnd/ngx-chart-slider';
 
 @NgModule({
     imports: [
@@ -21,6 +19,11 @@ import { NgxChartSliderModule } from 'ngx-chart-slider';
 })
 export class AppModule {
 }
+```
+
+Import ``node_modules/@jbrtrnd/ngx-chart-slider/src/lib/style/ngx-chart-slider.scss`` stylesheet in your root scss file :
+```
+@import "~@jbrtrnd/ngx-chart-slider/src/lib/style/ngx-chart-slider";
 ```
 
 ## Basic usage
